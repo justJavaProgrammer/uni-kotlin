@@ -28,21 +28,19 @@ fun main() {
             input.startsWith("add") -> {
                 val id = input.split(" ").getOrNull(1)?.toIntOrNull()
                 val product = products.find { it.id == id }
-                // TODO : "Execute add action"
-                //  if (product != null) addAction.execute(cart, product)
+                if (product != null) addAction.execute(cart, product)
             }
 
             input.startsWith("remove") -> {
                 val id = input.split(" ").getOrNull(1)?.toIntOrNull()
                 val product = products.find { it.id == id }
-                // TODO : "Execute remove action"
-                // if (product != null) removeAction.execute(cart, product)
+                if (product != null) removeAction.execute(cart, product)
             }
 
             input == "view" -> {
-                // TODO : "Execute view action"
-                // viewAction.execute(cart)
+                viewAction.execute(cart)
             }
+
             else -> println("Invalid command.")
         }
     }

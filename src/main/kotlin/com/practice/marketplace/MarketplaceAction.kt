@@ -17,7 +17,11 @@ abstract class MarketplaceAction {
  * @param cart The shopping cart to which the product will be added.
  * @param product The product to be added to the cart.
  */
-class AddProductAction
+class AddProductAction : MarketplaceAction() {
+    override fun execute(cart: Cart, product: Product?) {
+        cart.addProduct(product!!)
+    }
+}
 
 /**
  * Concrete action to add a product to the cart.
@@ -28,7 +32,11 @@ class AddProductAction
  * @param cart The shopping cart to which the product will be added.
  * @param product The product to be added to the cart.
  */
-class RemoveProductAction
+class RemoveProductAction : MarketplaceAction() {
+    override fun execute(cart: Cart, product: Product?) {
+        cart.removeProduct(product!!)
+    }
+}
 
 /**
  * Concrete action to remove a product from the cart.
@@ -37,4 +45,8 @@ class RemoveProductAction
  * @param cart The shopping cart from which the product will be removed.
  * @param product The product to be removed from the cart.
  */
-class ViewCartAction
+class ViewCartAction : MarketplaceAction() {
+    override fun execute(cart: Cart, product: Product?) {
+        cart.printCart()
+    }
+}
